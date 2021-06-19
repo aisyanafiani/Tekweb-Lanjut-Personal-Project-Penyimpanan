@@ -3,14 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { ForgotComponent } from './auth/forgot/forgot.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//material design
+import { MaterialDesign } from './material/material';
+import { MatCardSubtitle } from '@angular/material/card';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgotComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialDesign
+    
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

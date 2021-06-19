@@ -1,0 +1,51 @@
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { EmailValidator } from '@angular/forms';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+  [x: string]: any;
+  serverUrl: any = '';
+  constructor(
+    public http: HttpClient
+  ) { }
+
+httpOptions:any;
+getToken()
+{
+  var tokenKey=localStorage.getItem('appToken');
+  if(tokenKey!=null)
+  {
+    var tkn=JSON.parse(tokenKey);
+    this.httpOptions={
+      headers: new HttpHeaders({
+        'Content-Type':'application json',
+        'Authorizazion':'Bearer'+tkn.token
+      })
+    }
+  }
+}
+
+  get(url: string) {
+    this.getToken();
+    return this.http.get(this.httpOptions);
+  }
+  post(url: any, data: any) {
+    this.getToken();
+    return this.http.post(this.serverUrl + url, data, this.httpOptions);
+  }
+  put(url: any,data: any)
+ {
+   this.getToken();
+   return this.http.put(this.serverUrl+url,data, this.httpOptions);
+ }
+
+ delete(url: string)
+ {
+   this.getToken();
+   return this.http.delete(this.serverUrl+url, this.httpOptions)
+ }
+
+}
