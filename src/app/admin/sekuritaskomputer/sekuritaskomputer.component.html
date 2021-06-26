@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Sekuritas Komputer</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="uk-flex">
+            <span class="uk-width-expand"></span>
+            <button mat-flat-button color="primary" (click)="productDetail({},-1)">Isi Daftar Hadir</button>
+        </div>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <thead>             
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Kelas</th>
+                <th>Program Studi</th>
+                <th>Fakultas</th>
+            
+            </thead>
+            <tbody>
+                <tr *ngFor="let absence of absences; let idx=index">
+                    <td>{{idx+1}}</td>
+                    <td>{{absence.NIM}}</td>
+                    <td>{{absence.nama}}</td>
+                    <td>{{absence.Kelas}}</td>
+                    <td>{{absence.prodi}}</td>
+                    <td>{{absence.fakultas}}</td>
+                    <td align="right">
+                        <button mat-button color="primary"(click)="productDetail(absence,idx)">Edit</button>
+                        <button mat-button color="warn"(click)="deleteProduct(idx)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+ </mat-card>
+ 
+ 

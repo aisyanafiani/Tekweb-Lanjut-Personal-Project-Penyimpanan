@@ -30,17 +30,17 @@ export class AdminComponent implements OnInit {
         {
           name: 'Teknologi Website Lanjut',
           icon: 'laptop_chromebook',
-          url: '/admin/product'
+          url: '/admin/tekweb'
         },
         {
           name: 'Pemrograman Visual',
           icon: 'integration_instructions',
-          url: '/public/home'
+          url: '/admin/pemvis'
         },
         {
           name: 'Sekuritas Komputer',
           icon: 'vpn_key',
-          url: '/public/home'
+          url: '/admin/sekuritaskomputer'
         }
       ]
     }

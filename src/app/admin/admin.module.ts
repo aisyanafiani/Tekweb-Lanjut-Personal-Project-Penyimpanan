@@ -9,6 +9,10 @@ import { ImagesComponent } from './images/images.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { FormsModule } from '@angular/forms';
+import { TekwebComponent } from './tekweb/tekweb.component';
+import { PemvisComponent } from './pemvis/pemvis.component';
+import { SekuritaskomputerComponent } from './sekuritaskomputer/sekuritaskomputer.component';
+import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 
 const routes: Routes = [
   {
@@ -22,6 +26,18 @@ const routes: Routes = [
       {
         path : 'product',
         component : ProductComponent
+      },
+      {
+        path : 'tekweb',
+        component : TekwebComponent
+      },
+      {
+        path : 'pemvis',
+        component : PemvisComponent
+      },
+      {
+        path : 'sekuritaskomputer',
+        component : SekuritaskomputerComponent
       },
       {
         path : '',
@@ -38,7 +54,11 @@ const routes: Routes = [
     DashboardComponent,
     ImagesComponent,
     ProductComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    TekwebComponent,
+    PemvisComponent,
+    SekuritaskomputerComponent,
+    FileUploaderComponent
   ],
   entryComponents : [
 
