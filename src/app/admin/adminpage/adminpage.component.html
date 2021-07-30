@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            width: 100%;
+            padding: 10px;
+            background: url("https://images.pexels.com/photos/2821756/pexels-photo-2821756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="row">
+
+        <div class="column">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Teknologi Website Lanjut</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="uk-flex">
+                        <span class="uk-width-expand"></span>
+                        <button mat-raised-button color="primary" routerLink="/admin/tekwebtugas">Create a New Task</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="column">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Pemrograman Visual</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="uk-flex">
+                        <span class="uk-width-expand"></span>
+                        <button mat-raised-button color="primary" routerLink="/admin/pemvistugas">Create a New Task</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+
+        <div class="column">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Sekuritas Komputer</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="uk-flex">
+                        <span class="uk-width-expand"></span>
+                        <button mat-raised-button color="primary" routerLink="/admin/sekuritastugas">Create a New Task</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</body>
+</html>

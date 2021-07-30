@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ForgotComponent } from './auth/forgot/forgot.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { HomeComponent } from './public/home/home.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
     component : ForgotComponent
   },
   {
+    path : 'home',
+    component : HomeComponent
+  },
+  {
     path : 'admin',
     loadChildren : ()=>import('./admin/admin.module').then(mod=>mod.AdminModule)
   },
@@ -28,7 +33,7 @@ const routes: Routes = [
   {
     path : '',
     pathMatch:'full',
-    redirectTo:'/login'
+    redirectTo:'/home'
   }
 ];
 

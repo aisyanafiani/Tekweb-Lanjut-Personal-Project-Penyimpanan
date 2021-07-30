@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Tugas Pemrograman Visual </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="uk-flex">
+            <span class="uk-width-expand"></span>
+          
+        </div>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <thead> 
+                <th></th>
+                <th>DESKRIPSI</th>
+                <th>DUE DATE</th>
+                <th>ADD ATACHMENT</th>
+                <th align="right"></th>     
+            </thead>
+            <tbody>
+                <tr *ngFor="let pemvistugass of pemvistugas; let idx=index">
+                    
+                 
+                    <td>{{idx+1}}</td>
+                    <td>{{pemvistugass.deskripsi}}</td>
+                    <td>{{pemvistugass.deadline}}</td>
+                    <td>{{pemvistugass.file}}</td>
+                    <td align="right">
+                            <button mat-button color="accent" (click)="uploadFile(pemvistugass)">Add Atachment</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+ </mat-card>
+ 
+ 

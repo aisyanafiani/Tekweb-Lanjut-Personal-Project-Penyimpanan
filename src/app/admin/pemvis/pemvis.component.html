@@ -5,28 +5,30 @@
     <mat-card-content>
         <div class="uk-flex">
             <span class="uk-width-expand"></span>
-            <button mat-flat-button color="primary" (click)="productDetail({},-1)">Isi Daftar Hadir</button>
+            <button mat-flat-button color="primary" (click)="pemvisDetail({},-1)">Isi Daftar Hadir</button>
         </div>
         <table class="uk-table uk-table-middle uk-table-divider">
-            <thead>             
+            <thead>
+                <th></th>  
                 <th>NIM</th>
                 <th>Nama</th>
                 <th>Kelas</th>
                 <th>Program Studi</th>
                 <th>Fakultas</th>
+                <th align="right"></th>
             
             </thead>
             <tbody>
-                <tr *ngFor="let absence of absences; let idx=index">
+                <tr *ngFor="let pemviss of pemvis; let idx=index">
                     <td>{{idx+1}}</td>
-                    <td>{{absence.NIM}}</td>
-                    <td>{{absence.nama}}</td>
-                    <td>{{absence.Kelas}}</td>
-                    <td>{{absence.prodi}}</td>
-                    <td>{{absence.fakultas}}</td>
+                    <td>{{pemviss.nim}}</td>
+                    <td>{{pemviss.nama}}</td>
+                    <td>{{pemviss.kelas}}</td>
+                    <td>{{pemviss.prodi}}</td>
+                    <td>{{pemviss.fakultas}}</td>
                     <td align="right">
-                        <button mat-button color="primary"(click)="productDetail(absence,idx)">Edit</button>
-                        <button mat-button color="warn"(click)="deleteProduct(idx)">Delete</button>
+                        <button mat-button color="accent"(click)="pemvisDetail(pemviss,idx)">Edit</button>
+                        <button mat-button color="primary"(click)="deletepemvis(pemviss.id, idx)"[disabled]="loadingDelete[idx]">{{ loadingDelete[idx] ? 'Deleting':'Delete'}}</button>
                     </td>
                 </tr>
             </tbody>

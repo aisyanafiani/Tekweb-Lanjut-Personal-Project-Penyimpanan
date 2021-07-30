@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "online-absence-project": {
+      "hosting": {
+        "Online-Absence": [
+          "online-absence-project"
+        ]
+      }
+    }
+  }
+}

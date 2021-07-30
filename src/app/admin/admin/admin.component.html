@@ -1,45 +1,131 @@
+<style>
+    .intro-header {
+        height: unset !important;
+    }
+
+    .intro-2 {
+        background: url("https://images.pexels.com/photos/2395249/pexels-photo-2395249.jpeg?cs=srgb&dl=pexels-evie-shaffer-2395249.jpg&fm=jpg")no-repeat center;
+        background-size: cover;
+    }
+
+    .view {
+        height: 100vh !important;
+    }
+
+    .btn .fa {
+        margin-left: 3px;
+    }
+
+    .top-nav-collapse {
+        background-color: #424f95 !important;
+    }
+
+    .navbar:not(.top-nav-collapse) {
+        background: transparent !important;
+    }
+
+    @media (max-width: 768px) {
+        .navbar:not(.top-nav-collapse) {
+            background: #424f95 !important;
+        }
+    }
+
+    h6 {
+        line-height: 1.7;
+    }
+
+    .rgba-gradient .full-bg-img {
+        background: linear-gradient(45deg, rgba(83, 125, 210, 0.4), rgba(178, 30, 123, 0.4) 100%);
+    }
+
+    @media (max-width: 450px) {
+        .margins {
+            margin-right: 1rem;
+            margin-left: 1rem;
+        }
+    }
+
+    @media (max-width: 740px) {
+
+        .full-height,
+        .full-height body,
+        .full-height header,
+        .full-height header .view {
+            height: 1020px;
+        }
+    }
+</style>
+
+  <!--Intro Section-->
+  <section class="view intro-2 rgba-gradient">
+    <div class="full-bg-img">
+      <div class="container flex-center">
+        <div class="row flex-center pt-5 mt-3">
+          <div class="col-md-6 text-center text-md-left margins">
+            <div class="white-text">
+            </div>
+          </div>
+
+
 <ng-container>
     <!--toolbar-->
-    <mat-toolbar class="example-header">
+    <mat-toolbar color="accent" class="example-header">
         <button mat-icon-button (click)="sidenav.toggle()">
             <mat-icon>menu</mat-icon>
         </button>
         <span>Online Absence</span>
         <div class="uk-width-expand"></div>
-        <small>Admin</small>
+        <mat-menu #appMenu="matMenu">
+        </mat-menu>
+       
+            <mat-icon>library_add</mat-icon>
+            <button mat-button routerLink="/admin/joinclass">Join Class</button>
+
+        <button mat-button [matMenuTriggerFor]="appmenu">
+            <mat-icon>account_box</mat-icon>
+            <button mat-button>Admin</button>
+        </button>
+        <mat-menu #appmenu="matMenu">
+            <button mat-menu-item routerLink="/admin/dashboard">
+                <mat-icon>home</mat-icon>All Class
+            </button>
+            <button mat-menu-item routerLink="/admin/createnewclass">
+                <mat-icon>import_contacts</mat-icon>Create New Class
+            </button>
+            <button mat-menu-item routerLink="/admin/adminpage">
+                <mat-icon>task</mat-icon>Create New Task
+            </button>
+            <button mat-menu-item routerLink="/home">
+                <mat-icon>exit_to_app</mat-icon>Logout
+            </button>
+        </mat-menu>
+
     </mat-toolbar>
     <!--end toolbar-->
 
     <mat-sidenav-container class="example-container">
 
-        <mat-sidenav 
-        #sidenav 
-        mode="side" 
-        [position]="'start'" 
-        opened 
-        class="sidenav-left" 
-        [fixedInViewport]="true"
-        [fixedTopGap]="60" [fixedBottomGap]="0">
+        <mat-sidenav #sidenav mode="side" [position]="'start'" opened class="sidenav-left" [fixedInViewport]="true"
+            [fixedTopGap]="60" [fixedBottomGap]="0">
 
-        <mat-nav-list>
-            <div *ngFor="let item of menu">
-          <div *ngIf="item.children !=undefined">
-              <h3 matSubheader >{{item.group}}</h3>
-              <mat-list-item *ngFor="let c of item.children" routerLink="{{c.url}}">
-                  <mat-icon matListIcon>{{c.icon}}</mat-icon>
-                  <h3 matLine>{{c.name}}</h3>
-              </mat-list-item>
-          </div>
-          <mat-list-item *ngIf="item.children == undefined" routerLink="{{item.url}}">
-              <mat-icon matListIcon>{{item.icon}}</mat-icon>
-              <h3 matLine>{{item.name}}</h3>
-          </mat-list-item>
-            
-          </div>
-      
-         </mat-nav-list>
-        
-         
+            <mat-nav-list>
+                <div *ngFor="let item of menu">
+                    <div *ngIf="item.children !=undefined">
+                        <h3 matSubheader>{{item.group}}</h3>
+                        <mat-list-item *ngFor="let c of item.children" routerLink="{{c.url}}">
+                            <mat-icon matListIcon>{{c.icon}}</mat-icon>
+                            <h3 matLine>{{c.name}}</h3>
+                        </mat-list-item>
+                    </div>
+                    <mat-list-item *ngIf="item.children == undefined" routerLink="{{item.url}}">
+                        <mat-icon matListIcon>{{item.icon}}</mat-icon>
+                        <h3 matLine>{{item.name}}</h3>
+                    </mat-list-item>
+                </div>
+            </mat-nav-list>
+
+
+
 
         </mat-sidenav>
 
@@ -48,7 +134,7 @@
 
         </mat-sidenav>
         <!--sidenav content-->
-        <mat-sidenav-content style="padding: 20px; background-color: #ccc;">
+        <mat-sidenav-content style="padding: 20px; background-color: transparent;">
             <!--halaman-halaman tampil disini-->
 
             <router-outlet></router-outlet>

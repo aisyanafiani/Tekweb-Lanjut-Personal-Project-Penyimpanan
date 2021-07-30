@@ -1,37 +1,67 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Teknologi Website Lanjut</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <div class="uk-flex">
-            <span class="uk-width-expand"></span>
-            <button mat-flat-button color="primary" (click)="productDetail({},-1)">Isi Daftar Hadir</button>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            width: 100%;
+            padding: 10px;
+            background: url("https://images.pexels.com/photos/3992714/pexels-photo-3992714.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")no-repeat center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="row">
+
+        <div class="column">
+      <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Teknologi Website Lanjut</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="uk-flex">
+                        <span class="uk-width-expand"></span>
+                        <button mat-raised-button color="primary" routerLink="/admin/tekwebtugass">View Task</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
         </div>
-        <table class="uk-table uk-table-middle uk-table-divider">
-            <thead>             
-                <th>NIM</th>
-                <th>Nama</th>
-                <th>Kelas</th>
-                <th>Program Studi</th>
-                <th>Fakultas</th>
-            
-            </thead>
-            <tbody>
-                <tr *ngFor="let absence of absences; let idx=index">
-                    <td>{{idx+1}}</td>
-                    <td>{{absence.NIM}}</td>
-                    <td>{{absence.nama}}</td>
-                    <td>{{absence.Kelas}}</td>
-                    <td>{{absence.prodi}}</td>
-                    <td>{{absence.fakultas}}</td>
-                    <td align="right">
-                        <button mat-button color="primary"(click)="productDetail(absence,idx)">Edit</button>
-                        <button mat-button color="warn"(click)="deleteProduct(idx)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </mat-card-content>
- </mat-card>
- 
- 
+
+        <div class="column">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Pemrograman Visual</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="uk-flex">
+                        <span class="uk-width-expand"></span>
+                        <button mat-raised-button color="primary" routerLink="/admin/pemvistugass">View Task</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+
+        <div class="column">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Sekuritas Komputer</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="uk-flex">
+                        <span class="uk-width-expand"></span>
+                        <button mat-raised-button color="primary" routerLink="/admin/sekuritastugass">View Task</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</body>
+</html>

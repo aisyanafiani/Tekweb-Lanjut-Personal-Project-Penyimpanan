@@ -1,0 +1,36 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Tugas Teknologi Website Lanjut </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="uk-flex">
+            <span class="uk-width-expand"></span>
+            <button mat-flat-button color="primary" (click) = "tekwebtugasDetail({},-1)">New Task</button>
+        </div>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <thead> 
+                <th></th>
+                <th>DESKRIPSI</th>
+                <th>DEADLINE</th>
+                <th>ATACHMENT</th>
+                <th align="right"></th>     
+            </thead>
+            <tbody>
+                <tr *ngFor="let tekwebtugass of tekwebtugas; let idx=index">
+                    
+                 
+                    <td>{{idx+1}}</td>
+                    <td>{{tekwebtugass.deskripsi}}</td>
+                    <td>{{tekwebtugass.deadline}}</td>
+                    <td>{{tekwebtugass.file}}</td>
+                    <td align="right">
+                        <button mat-button color="accent"(click)="tekwebtugasDetail(tekwebtugass,idx)">Edit</button>
+                        <button mat-button color="primary"(click)="deletetugasTekweb(tekwebtugass.id, idx)"[disabled]="loadingDelete[idx]">{{ loadingDelete[idx] ? 'Deleting':'Delete'}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+ </mat-card>
+ 
+ 

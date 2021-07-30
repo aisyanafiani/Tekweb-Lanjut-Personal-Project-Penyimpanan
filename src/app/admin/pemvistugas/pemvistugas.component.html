@@ -1,0 +1,36 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Tugas Pemrograman Visual </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="uk-flex">
+            <span class="uk-width-expand"></span>
+            <button mat-flat-button color="primary" (click) = "pemvistugasDetail({},-1)">New Task</button>
+        </div>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <thead> 
+                <th></th>
+                <th>DESKRIPSI</th>
+                <th>DEADLINE</th>
+                <th>ATACHMENT</th>
+                <th align="right"></th>     
+            </thead>
+            <tbody>
+                <tr *ngFor="let pemvistugass of pemvistugas; let idx=index">
+                    
+                 
+                    <td>{{idx+1}}</td>
+                    <td>{{pemvistugass.deskripsi}}</td>
+                    <td>{{pemvistugass.deadline}}</td>
+                    <td>{{pemvistugass.file}}</td>
+                    <td align="right">
+                        <button mat-button color="accent"(click)="pemvistugasDetail(pemvistugass,idx)">Edit</button>
+                        <button mat-button color="primary"(click)="deletetugasPemvis(pemvistugass.id, idx)"[disabled]="loadingDelete[idx]">{{ loadingDelete[idx] ? 'Deleting':'Delete'}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+ </mat-card>
+ 
+ 

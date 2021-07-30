@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { MatDialog } from '@angular/material/dialog';
-import { ProductDetailComponent } from '../product-detail/product-detail.component';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { PemvisdetailComponent } from '../pemvisdetail/pemvisdetail.component';
 
 @Component({
   selector: 'app-pemvis',
@@ -9,53 +11,66 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 })
 export class PemvisComponent implements OnInit {
 
-  title:any;
-  absence:any={};
-  absences:any=[];
+  title: any;
+  pemviss: any = [];
+  userData: any = {};
+  pemvis: any;
 
   constructor(
     public dialog: MatDialog,
+    public db: AngularFirestore,
+    public auth: AngularFireAuth
+
   ) {
 
-    this.title = 'Tekweb';
   }
   ngOnInit(): void {
     console.log();
-    this.title='Tekweb';
-    this.absence={
-      NIM : '1900016020',
-      Nama : 'Aisya Fitria Nafiani',
-      Kelas:'D',
-      ProgramStudi:'SI',
-      Fakultas:'FAST',
-    };
-    
+    this.title = 'Pemvis';
+    this.auth.user.subscribe(user => {
+      this.userData = user;
+      this.getPemvis();
+    });
   }
-
-
-
-productDetail(data:any,idx:any)
- {
-   let dialog=this.dialog.open(ProductDetailComponent, {
-     width:'400px',
-     data:data
-   });
-   dialog.afterClosed().subscribe(res=>{
-     if(res)
-     {
+  loading: boolean | undefined;
+  getPemvis() {
+    this.loading = true;
+    this.db.collection('pemvis', ref => {
+      return ref.where('uid', '==', this.userData.uid);
+    }).valueChanges({ idField: 'id' }).subscribe(res => {
+      console.log(res);
+      this.pemvis = res;
+      this.loading = false;
+    }, err => {
+      this.loading = false;
+    })
+  }
+  pemvisDetail(data: any, idx: any) {
+    let dialog = this.dialog.open(PemvisdetailComponent, {
+      width: '400px',
+      data: data
+    });
+    dialog.afterClosed().subscribe(res => {
+      if (res) {
         //jika idx=-1 (penambahan data baru) maka tambahkan data
-       if(idx==-1)this.absences.push(res);      
+        if (idx == -1) this.pemvis.push(res);
         //jika tidak maka perbarui data  
-       else this.absences[idx]=res; 
-     }
-   })
+        else this.pemvis[idx] = res;
+      }
+    })
   }
-  deleteProduct(idx:any)
- {
-   var conf=confirm('Delete item?');
-   if(conf)
-   this.absences.splice(idx,1);
- }
+  loadingDelete: any = {};
+  deletepemvis(id: any, idx: any) {
+    var conf = confirm('Delete Item?');
+    if (conf) {
+      this.db.collection('pemvis').doc(id).delete().then(res => {
+        this.pemvis.splice(idx, 1);
+        this.loadingDelete[idx] = false;
+      }).catch(err => {
+        this.loadingDelete[idx] = false;
+        alert('Tidak dapat menghapus data');
+      });
+    }
+  }
 
 }
-

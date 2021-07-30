@@ -1,0 +1,30 @@
+<h3 mat-dialog-title>
+    Isi Daftar Hadir Sekuritas Komputer
+ </h3>
+ <div mat-dialog-content>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>NIM</mat-label>
+        <input matInput [(ngModel)]="data.nim">      
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>NAMA</mat-label>
+        <input matInput [(ngModel)]="data.nama" >     
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>KELAS</mat-label>
+        <input matInput [(ngModel)]="data.kelas" >     
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>PROGRAM STUDI</mat-label>
+        <input matInput [(ngModel)]="data.prodi" >     
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>FAKULTAS</mat-label>
+        <input matInput [(ngModel)]="data.fakultas" >      
+    </mat-form-field>
+ </div>
+ <div mat-dialog-actions align="end">
+ <button mat-button mat-dialog-close color="primary">Cancel</button>
+ <button mat-flat-button (click)="saveData()" [disabled]="loading"color="accent">{{loading ? 'Menyimpan . . ':'Save'}}</button>
+ </div>
+ 

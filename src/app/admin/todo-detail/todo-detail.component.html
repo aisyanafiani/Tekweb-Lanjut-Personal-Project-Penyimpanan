@@ -1,0 +1,23 @@
+<h3 mat-dialog-title>
+    Add a Task
+</h3>
+<div mat-dialog-content>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>COURSES</mat-label>
+        <input matInput [(ngModel)]="data.matkul">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>DESCRIPTION</mat-label>
+        <input matInput [(ngModel)]="data.description">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>DUE DATE</mat-label>
+        <input matInput type="date" [(ngModel)]="data.date">
+    </mat-form-field>
+
+
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close color="primary">Cancel</button>
+    <button mat-flat-button (click)="saveData()" color="accent">Save</button>
+</div>

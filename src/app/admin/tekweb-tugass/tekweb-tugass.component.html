@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Tugas Teknologi Website Lanjut </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="uk-flex">
+            <span class="uk-width-expand"></span>
+          
+        </div>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <thead> 
+                <th></th>
+                <th>DESKRIPSI</th>
+                <th>DEADLINE</th>
+                <th>DUE DATE</th>
+                <th align="right"></th>     
+            </thead>
+            <tbody>
+                <tr *ngFor="let tekwebtugass of tekwebtugas; let idx=index">
+                    
+                 
+                    <td>{{idx+1}}</td>
+                    <td>{{tekwebtugass.deskripsi}}</td>
+                    <td>{{tekwebtugass.deadline}}</td>
+                    <td>{{tekwebtugass.file}}</td>
+                    <td align="right">
+                            <button mat-button color="accent" (click)="uploadFile(tekwebtugass)">Add Atachment</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+ </mat-card>
+ 
+ 

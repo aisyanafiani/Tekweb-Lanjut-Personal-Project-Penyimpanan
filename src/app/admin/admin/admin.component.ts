@@ -43,6 +43,26 @@ export class AdminComponent implements OnInit {
           url: '/admin/sekuritaskomputer'
         }
       ]
+    },
+    {
+      group: 'Others',
+      children: [
+        {
+          name: 'To do List',
+          icon: 'toc',
+          url: '/admin/todo'
+        },
+        {
+          name: 'Tugas',
+          icon: 'task',
+          url: '/admin/produk'
+        },
+        {
+          name: 'Logout',
+          icon: 'exit_to_app',
+          url: '//'
+        },
+      ]
     }
   ];
 
